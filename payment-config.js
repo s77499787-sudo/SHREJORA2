@@ -1,0 +1,1 @@
+exports.handler=async()=>({statusCode:200,headers:{'Content-Type':'application/json'},body:JSON.stringify({enabled:Boolean(process.env.RAZORPAY_KEY_ID&&process.env.RAZORPAY_KEY_SECRET),keyId:process.env.RAZORPAY_KEY_ID||''})});

@@ -1,0 +1,8 @@
+Shiprocket-only safe fix. No store design, products, checkout totals, email, login, admin, My Orders, tax or delivery behavior changed.
+
+Changes only in netlify/functions/shiprocket-order.js:
+- Uses unique external Shiprocket order IDs: SHREJORA-<store order id>.
+- Trims pickup location before API submission.
+- Uses logged-in/customer email, with configured Shiprocket API email as safe fallback if needed.
+- Validates normalized 10-digit phone and 6-digit pincode before Shiprocket API call.
+- Existing Shiprocket API error response remains available to the frontend diagnostic localStorage entry.

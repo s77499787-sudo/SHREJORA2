@@ -1,0 +1,20 @@
+SHREJORA FINAL STORE
+Mail: set RESEND_API_KEY and optionally ORDER_FROM_EMAIL in Netlify environment variables.
+Online payment: set RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET in Netlify environment variables after Razorpay KYC/live activation.
+If payment keys are absent, Online Payment safely shows as unavailable and COD continues working.
+
+SHIPROCKET AUTO ORDER SYNC
+--------------------------
+Required Netlify environment variables:
+SHIPROCKET_API_EMAIL = API user email
+SHIPROCKET_API_PASSWORD = API user password (secret)
+SHIPROCKET_PICKUP_LOCATION = exact Shiprocket pickup location name
+
+Optional package defaults (jewellery parcel):
+SHIPROCKET_PACKAGE_LENGTH=10
+SHIPROCKET_PACKAGE_BREADTH=10
+SHIPROCKET_PACKAGE_HEIGHT=5
+SHIPROCKET_PACKAGE_WEIGHT=0.2
+
+New Netlify Function: /.netlify/functions/shiprocket-order
+It validates the logged-in Supabase user, authenticates server-side with Shiprocket, and creates a Custom order when the store order is created.
