@@ -33,3 +33,22 @@ function startSlider() {
 }
 
 document.addEventListener("DOMContentLoaded", renderBanner);
+function nextBanner() {
+    const slides = document.querySelectorAll(".banner-slide");
+
+    slides[current].classList.remove("active");
+
+    current = (current + 1) % slides.length;
+
+    slides[current].classList.add("active");
+}
+
+function prevBanner() {
+    const slides = document.querySelectorAll(".banner-slide");
+
+    slides[current].classList.remove("active");
+
+    current = (current - 1 + slides.length) % slides.length;
+
+    slides[current].classList.add("active");
+}
